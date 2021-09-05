@@ -11,7 +11,7 @@
     "start": "tsc index.ts && node index.js"
   },
   "dependencies": {
-    "imagemagick": "^0.1.3",
+    "imagemagick": "^0.1.3"
   },
   "devDependencies": {
     "@types/imagemagick": "^0.0.31"
