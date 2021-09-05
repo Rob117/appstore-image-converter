@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@types/imagemagick@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/imagemagick/-/imagemagick-0.0.31.tgz#781fda8d55eb5de3a9ab38749686539cfe1037b4"
+  integrity sha512-TT7Jd8YAWqHKM7tl5lnVMaTd+Pl6m6DrqFyyQ1SUVTBu6YqYcYabaELIFTEjmkC10ATpcpiscG8pNxB/0AeA9A==
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*":
+  version "16.7.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.10.tgz#7aa732cc47341c12a16b7d562f519c2383b6d4fc"
+  integrity sha512-S63Dlv4zIPb8x6MMTgDq5WWRJQe56iBEY0O3SOFA9JrRienkOVDXSXBjjJw6HTNQYSE2JI6GMCR6LVbIMHJVvA==
+
 imagemagick@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/imagemagick/-/imagemagick-0.1.3.tgz#7483cea093b4d9f2e2f396857adc8821b537c56a"
