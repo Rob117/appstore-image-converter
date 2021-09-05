@@ -8,16 +8,40 @@
 // image -> transform to correct size png w/ no alpha channel
 // put in folder at requested output resolution
 
-import {convert} from 'imagemagick';
+import { convert } from 'imagemagick';
 import { readdirSync } from 'fs';
 
-const INPUT_DIR = 'inputs';
-const sourceImages = readdirSync(INPUT_DIR);
+type Resolution = '1242x2208!' | '1242x2688!' | '2048x2732!';
 
-sourceImages.forEach((err, index) => {
+const resolutions: {[key: string]: Resolution} = {
+  ios5: '1242x2208!',
+  ios6: '1242x2688!',
+  ipad: '2048x2732!',
+};
+
+const convertImages = (dirName: string, resolution: string) => {
+  const sourceImages = readdirSync(`inputs/${dirName}`);
+
+  sourceImages.forEach((err, index) => {
     const imageName = sourceImages[index];
     convert(
-        [`${INPUT_DIR}/${imageName}`, '-resize', '1242x2688!', '-alpha', 'off', `outputs/${imageName}`],
+        [
+          `inputs/${dirName}/${imageName}`,
+          '-resize',
+          resolution,
+          '-alpha',
+          'off',
+          `outputs/${dirName}/${imageName}`
+        ],
         () => {}
     )
   })
+};
+
+const main = () => {
+  for (const [screenType, resolution] of Object.entries(resolutions)) {
+    convertImages(screenType, resolution);
+  };  
+}
+
+main();
