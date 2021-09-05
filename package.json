@@ -1,0 +1,9 @@
+{
+  "name": "appstore-image-converter",
+  "version": "0.0.1",
+  "description": "Convert images into appstore-compatible image files",
+  "main": "index.js",
+  "repository": "git@github.com:Rob117/appstore-image-converter.git",
+  "author": "Rob + Risa",
+  "license": "MIT"
+}
