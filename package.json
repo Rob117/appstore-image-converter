@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:Rob117/appstore-image-converter.git",
   "author": "Rob + Risa",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "imagemagick": "^0.1.3"
+  }
 }
