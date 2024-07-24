@@ -19,19 +19,19 @@ const resolutions: {[key: string]: Resolution} = {
   ipad: '2048x2732!',
 };
 
-const convertImages = (dirName: string, resolution: string) => {
-  const sourceImages = readdirSync(`inputs/${dirName}`);
+const convertImages = (appStoreFolderName: string,dirName: string, resolution: string) => {
+  const sourceImages = readdirSync(`${appStoreFolderName}/${dirName}`);
 
   sourceImages.forEach((err, index) => {
     const imageName = sourceImages[index];
     convert(
         [
-          `inputs/${dirName}/${imageName}`,
+          `${appStoreFolderName}/${dirName}/${imageName}`,
           '-resize',
           resolution,
           '-alpha',
           'off',
-          `outputs/${dirName}/${imageName}`
+          `${appStoreFolderName}/outputs/${dirName}/${imageName}`
         ],
         () => {}
     )
@@ -39,9 +39,13 @@ const convertImages = (dirName: string, resolution: string) => {
 };
 
 const main = () => {
+  const appStoreFolderNames = ['forENAppstore', 'forJAAppstore']
+  for (let i = 0; i < appStoreFolderNames.length; i++) {
+    const appStoreName = appStoreFolderNames[i];
   for (const [screenType, resolution] of Object.entries(resolutions)) {
-    convertImages(screenType, resolution);
-  };  
+    convertImages(appStoreName, screenType, resolution);
+  };   
+  }
 }
 
 main();
